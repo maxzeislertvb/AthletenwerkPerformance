@@ -1,0 +1,129 @@
+index.html<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletenwerk Leistung | Sporttherapie & Performance Coaching</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .grid {
+            max-width: 900px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .card h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 60px auto 20px auto;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Athletenwerk Leistung</h1>
+        <p class="subtitle">Sporttherapie & Performance Coaching für Einzelathleten und Teams</p>
+        <a href="#kontakt" class="cta-btn">Kostenloses Erstgespräch buchen</a>
+    </header>
+
+    <section class="grid">
+        <div class="card">
+            <h2>1. Kraft & Athletik</h2>
+            <p>Spezifisches Aufbautraining für maximale Explosivität, Schnelligkeit und Belastbarkeit auf dem Feld.</p>
+        </div>
+        <div class="card">
+            <h2>2. Sporttherapie & Reha</h2>
+            <p>Evidenzbasierte Prävention und gezielter Wiederaufbau nach Verletzungen für eine lange Karriere.</p>
+        </div>
+        <div class="card">
+            <h2>3. Mental Training</h2>
+            <p>Fokus, Druckresistenz und mentale Stärke in den entscheidenden Spielminuten.</p>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <p>&copy; Athletenwerk Leistung. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>
