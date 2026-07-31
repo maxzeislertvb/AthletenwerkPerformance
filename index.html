@@ -3,227 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athletenwerk Leistung | Sporttherapie & Performance Coaching</title>
-    <!-- Einbindung sportlicher & professioneller Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Athletenwerk Leistung | Performance. Mindset. Entwicklung.</title>
+    <!-- Premium Schriftarten für einen modernen, nicht-KI Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Deine Farbpalette: Dunkel, Modern, Vertrauenserweckend */
-            --bg-color: #0c121e;
-            --card-bg: #161f31;
-            --card-border: #26334d;
-            --accent-blue: #2563eb;
-            --accent-hover: #3b82f6;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --glow-card: rgba(37, 99, 235, 0.15);
-            --font-heading: 'Oswald', sans-serif;
-            --font-body: 'Roboto', sans-serif;
+            /* Deine Premium-Logo-Farbpalette */
+            --bg-deep-black: #080808;
+            --card-dark: #121212;
+            --gold-accent: #c4a16b; /* Dein Gold-Ton aus dem Logo */
+            --gold-hover: #e0b884;
+            --text-pure-white: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-subtle: #222222;
+
+            /* Schrifteinstellungen */
+            --font-heading: 'Syncopate', sans-serif; /* Modern, sportlich, anders */
+            --font-body: 'Montserrat', sans-serif;
         }
 
-        /* Globale Stile */
+        /* Globale Stile für Premium-Feeling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth; /* Sanftes Scrollen zu Ankern */
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg-deep-black);
+            color: var(--text-pure-white);
             font-family: var(--font-body);
-            line-height: 1.7;
+            font-weight: 300; /* Dünnere Schrift wirkt edler */
+            line-height: 1.8;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         /* Überschriften */
         h1, h2, h3 {
             font-family: var(--font-heading);
+            letter-spacing: 0.15em; /* Mehr Laufweite für Premium-Effekt */
             text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: #ffffff;
         }
 
-        /* --- Header / Hero Section --- */
+        /* --- Header / Navigation Platzhalter --- */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* --- Hero Section: Weniger Text, mehr Wirkung --- */
         header {
             max-width: 1000px;
-            margin: 60px auto 40px auto;
+            margin: 80px auto;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         h1 {
-            font-size: 3.2rem;
-            margin-bottom: 12px;
-            line-height: 1.1;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--gold-accent);
         }
 
         p.subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 700px;
+            margin-bottom: 50px;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Der Haupt-Aktionsbutton mit Interaktion */
+        /* Premium-Button-Design */
         .cta-btn {
             display: inline-block;
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 16px 36px;
-            border-radius: 8px;
+            background-color: transparent;
+            color: var(--gold-accent);
+            padding: 18px 45px;
+            border: 2px solid var(--gold-accent);
+            border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
             font-family: var(--font-heading);
-            letter-spacing: 0.05em;
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-            transform: scale(1);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            transition: all 0.4s ease;
         }
 
-        .cta-btn:hover, .cta-btn:active {
-            background-color: var(--accent-hover);
-            transform: scale(1.03); /* Vergrößert sich leicht beim Berühren/Hover */
-            box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.5);
+        .cta-btn:hover {
+            background-color: var(--gold-accent);
+            color: var(--bg-deep-black);
+            box-shadow: 0 0 15px rgba(196, 161, 107, 0.4);
         }
 
         /* --- Leistungen Section --- */
         .grid {
-            max-width: 1000px;
-            margin: 40px auto 80px auto;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 60px auto 100px auto;
+            padding: 0 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
-        /* Leistungskarte mit Interaktion */
+        /* Karten: Dunkel, Subtil, Exklusiv */
         .card {
-            background-color: var(--card-bg);
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-            cursor: pointer; /* Zeigt an, dass man draufklicken könnte, auch ohne Link */
-            transform: translateY(0);
+            background-color: var(--card-dark);
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Hover-Effekt: Karte hebt sich ab und bekommt blauen Schimmer */
+        /* Kleine visuelle Gold-Linie */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
         .card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px -10px var(--glow-card);
+            border-color: #333333;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .card:hover::before {
+            background-color: var(--gold-accent);
         }
 
         .card h2 {
-            color: var(--accent-blue);
-            margin-bottom: 18px;
-            font-size: 1.6rem;
-            letter-spacing: 0.02em;
+            color: var(--text-pure-white);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
         }
 
         .card h2 span {
-            color: white; /* Nummerierung in weiß */
+            color: var(--gold-accent);
+            margin-right: 10px;
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 1rem;
+            font-weight: 300;
         }
 
         /* --- Footer / Kontakt Section --- */
         footer {
             max-width: 1000px;
-            margin: auto auto 20px auto; /* Drückt den Footer nach unten */
+            margin: auto auto 30px auto;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--card-border);
-            padding-top: 30px;
-            padding-bottom: 20px;
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 50px;
+            padding-bottom: 30px;
             width: 90%;
         }
 
-        .kontakt-links {
-            margin-bottom: 25px;
+        .kontakt-heading {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            color: var(--gold-accent);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
 
+        .kontakt-links {
+            margin-bottom: 35px;
+            font-family: var(--font-body);
+            font-weight: 700;
+        }
+
         .kontakt-links a {
-            margin: 0 15px;
+            margin: 0 20px;
             display: inline-block;
             border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
         }
 
-        /* Echte Links im Footer: E-Mail und Instagram */
         .kontakt-links a:hover {
-            color: #ffffff;
-            border-bottom-color: var(--accent-blue);
+            color: var(--text-pure-white);
+            border-bottom-color: var(--gold-accent);
         }
 
-        .legal-notices {
-            margin-top: 15px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+        .legal-links {
+            margin-top: 20px;
+            font-size: 0.85rem;
         }
 
-        /* Responsive Anpassung für kleinere Screens */
-        @media (max-width: 700px) {
-            h1 { font-size: 2.5rem; }
+        .legal-links a {
+            margin: 0 10px;
+        }
+
+        .legal-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
             .grid { grid-template-columns: 1fr; }
+            .card { padding: 35px; }
+            header { margin: 60px auto; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Einfacher Navigation Platzhalter -->
+    <nav>
+        <div class="logo-text">ATHLETENWERK</div>
+    </nav>
+
     <header>
-        <h1>Athletenwerk Leistung</h1>
-        <p class="subtitle">Sporttherapie & Performance Coaching für Einzelathleten und Teams</p>
-        <!-- Button scrollt jetzt sanft zum Kontaktbereich im Footer -->
-        <a href="#kontakt" class="cta-btn">Kostenloses Erstgespräch buchen</a>
+        <h1>Performance. Mindset. Entwicklung.</h1>
+        <p class="subtitle">Das Premium-Athletik-Konzept für Profi-Sportler und High-Performer.</p>
+        <a href="#kontakt" class="cta-btn">Bewerbung für Coaching</a>
     </header>
 
     <section class="grid">
         <div class="card">
-            <h2><span>1.</span> Kraft & Athletik</h2>
-            <p>Spezifisches Aufbautraining für maximale Explosivität, Schnelligkeit und Belastbarkeit auf dem Spielfeld. Wir legen die Physische Basis.</p>
+            <h2><span>01</span> Kraft & Athletik</h2>
+            <p>Maßgeschneidertes Performance-Training für maximale Belastbarkeit und physische Exzellenz.</p>
         </div>
         <div class="card">
-            <h2><span>2.</span> Sporttherapie & Reha</h2>
-            <p>Evidenzbasierte Prävention und gezielter Wiederaufbau nach Verletzungen. Mein Ziel: Eine lange, schmerzfreie Karriere für dich.</p>
+            <h2><span>02</span> Entwicklung</h2>
+            <p>Langfristige Entwicklung deiner sportlichen Karriere und deiner Persönlichkeit.</p>
         </div>
         <div class="card">
-            <h2><span>3.</span> Mental Training</h2>
-            <p>Fokus, Druckresistenz und mentale Stärke in den entscheidenden Spielminuten. Bereite deinen Kopf auf den Sieg vor.</p>
+            <h2><span>03</span> Mindset Coaching</h2>
+            <p>Fokus, Resilienz und mentale Stärke in den entscheidenden Spielminuten.</p>
         </div>
     </section>
 
     <!-- Der Kontakt-Bereich im Footer -->
     <footer id="kontakt">
+        <p class="kontakt-heading">Bereit für den nächsten Schritt?</p>
         <div class="kontakt-links">
-            <a href="mailto:maxzeislertvb@googlemail.com">E-Mail</a>
+            <a href="mailto:maxzeislertvb@googlemail.com">E-Mail senden</a>
             <a href="https://www.instagram.com/athletenwerkperformance/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
-        <p>&copy; 2024 Athletenwerk Leistung. Alle Rechte vorbehalten.</p>
-        <div class="legal-notices">
-            <!-- Platzhalter für rechtliche Links -->
-            <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        <p>&copy; 2024 Athletenwerk Leistung.</p>
+        <div class="legal-links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
         </div>
     </footer>
 
 </body>
 </html>
-
