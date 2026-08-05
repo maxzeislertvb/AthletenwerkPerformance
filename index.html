@@ -1,294 +1,601 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATHLETENWERK | High-Performance Athletic Coaching</title>
-  
-  <!-- Premium Fonts: Syne & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athletenwerk — Performance Coaching</title>
+<meta name="description" content="Athletenwerk — individuelles Athletiktraining und Leistungsdiagnostik. Mindset. Entwicklung. Performance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0A1B3D;
+    --navy-2: #12275A;
+    --blue: #1E5CFF;
+    --blue-deep: #143FBB;
+    --ice: #EEF2FB;
+    --white: #FFFFFF;
+    --slate: #5A6B8C;
+    --line-dark: rgba(255,255,255,0.12);
+    --line-light: rgba(10,27,61,0.10);
+    --maxw: 1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--navy);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-weight:600;
+    line-height:1.05;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.04em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--blue);color:var(--white);}
 
-  <style>
-    /* RESET & CORE VARS */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+  }
 
-    :root {
-      --bg-dark: #0a0a0c;
-      --bg-card: #121316;
-      --accent-white: #ffffff;
-      --text-muted: #8e8e93;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --font-heading: 'Syne', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--accent-white);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,27,61,0.85);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:44px;width:44px;object-fit:cover;border-radius:50%;background:var(--white);}
+  .brand-name{font-family:'Oswald',sans-serif;font-size:18px;letter-spacing:0.06em;font-weight:600;color:var(--white);}
+  nav.links{display:flex;gap:36px;font-size:14px;letter-spacing:0.03em;text-transform:uppercase;font-weight:500;}
+  nav.links a{color:rgba(255,255,255,0.72);position:relative;padding:4px 0;}
+  nav.links a:hover{color:var(--white);}
+  nav.links a::after{
+    content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--blue);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--blue);
+    color:var(--white);
+    padding:11px 24px;
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    font-weight:600;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--blue-deep);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:26px;cursor:pointer;}
 
-    /* TYPOGRAPHY */
-    h1, h2, h3, .brand-text {
-      font-family: var(--font-heading);
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-    }
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:76px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 560px at 80% 25%, rgba(30,92,255,0.30), transparent 60%),
+      linear-gradient(180deg, #0A1B3D 0%, #0D2352 100%);
+    color:var(--white);
+  }
+  .hero::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-mark{
+    position:absolute;
+    right:-6%;
+    top:50%;
+    transform:translateY(-50%);
+    width:640px;
+    max-width:60vw;
+  }
+  .hero-mark img{
+    width:100%;
+    border-radius:50%;
+    opacity:0.92;
+    mix-blend-mode:screen;
+    filter:contrast(1.1);
+  }
+  .hero-content{position:relative;z-index:2;max-width:680px;}
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-size:12.5px;color:#7FA0FF;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:28px;height:1px;background:#7FA0FF;}
+  .hero h1{
+    font-size:clamp(42px, 6.4vw, 82px);
+    color:var(--white);
+  }
+  .hero h1 span{color:#5C8CFF;}
+  .hero p.lead{
+    margin-top:26px;
+    max-width:480px;
+    color:rgba(255,255,255,0.75);
+    font-size:17px;
+  }
+  .hero-actions{display:flex;gap:18px;margin-top:40px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--blue);
+    color:var(--white);
+    padding:16px 32px;
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-size:14px;
+    transition:transform .2s ease, background .2s ease;
+    display:inline-block;
+    border:none;
+  }
+  .btn-primary:hover{background:var(--blue-deep); transform:translateY(-2px);}
+  .btn-secondary{
+    border:1px solid rgba(255,255,255,0.35);
+    color:var(--white);
+    padding:16px 32px;
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-size:14px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-secondary:hover{border-color:#7FA0FF;background:rgba(30,92,255,0.12);}
 
-    /* NAVIGATION */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 4rem;
-      background: rgba(10, 10, 12, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-subtle);
-    }
+  .hero-stats{
+    position:relative;z-index:2;
+    display:flex;
+    gap:56px;
+    margin-top:76px;
+    padding-top:32px;
+    border-top:1px solid var(--line-dark);
+    max-width:640px;
+  }
+  .stat-num{font-family:'Oswald',sans-serif;font-size:30px;color:var(--white);font-weight:600;}
+  .stat-label{font-size:12px;text-transform:uppercase;letter-spacing:0.06em;margin-top:6px;color:rgba(255,255,255,0.6);}
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--accent-white);
-    }
+  section{padding:130px 0;position:relative;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .kicker{
+    font-size:12.5px;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:block;
+  }
+  .section-head h2{font-size:clamp(30px,4vw,46px);}
+  .section-head p{color:var(--slate);margin-top:18px;font-size:16px;max-width:520px;}
 
-    /* Dynamic Monochrome Logo Concept */
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      background: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+  .section-dark{background:var(--navy);color:var(--white);}
+  .section-dark .kicker{color:#5C8CFF;}
+  .section-dark .section-head p{color:rgba(255,255,255,0.7);}
 
-    .logo-container:hover .logo-mark {
-      transform: scale(1.08);
-    }
+  .pillars{background:var(--white);border-top:1px solid var(--line-light);}
+  .pillars-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+  }
+  .pillar{
+    background:var(--white);
+    padding:56px 40px;
+    transition:background .25s ease;
+  }
+  .pillar:hover{background:var(--ice);}
+  .pillar .mono{color:var(--blue);font-size:13px;display:block;margin-bottom:20px;}
+  .pillar h3{font-size:34px;color:var(--navy);margin-bottom:16px;}
+  .pillar p{color:var(--slate);font-size:15px;max-width:320px;}
 
-    .logo-mark svg {
-      width: 22px;
-      height: 22px;
-      fill: #0a0a0c;
-    }
+  .services{background:var(--ice);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+  }
+  .service-card{
+    background:var(--white);
+    padding:44px 36px;
+    transition:background .25s ease;
+  }
+  .service-card:hover{background:#F6F9FF;}
+  .service-icon{
+    width:44px;height:44px;
+    border:1px solid var(--blue);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:28px;
+    color:var(--blue);
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+  }
+  .service-card h3{font-size:20px;color:var(--navy);margin-bottom:14px;letter-spacing:0.01em;}
+  .service-card p{color:var(--slate);font-size:14.5px;}
 
-    .brand-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-    }
+  .steps{display:flex;flex-direction:column;}
+  .step{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:36px;
+    padding:38px 0;
+    border-top:1px solid var(--line-dark);
+    align-items:start;
+  }
+  .steps .step:last-child{border-bottom:1px solid var(--line-dark);}
+  .step-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:15px;
+    color:#5C8CFF;
+    padding-top:4px;
+  }
+  .step h3{font-size:22px;color:var(--white);margin-bottom:10px;}
+  .step p{color:rgba(255,255,255,0.7);max-width:560px;font-size:15px;}
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .about-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg,var(--navy-2),var(--navy));
+    border:1px solid var(--line-light);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .about-visual img{
+    width:62%;
+    filter:drop-shadow(0 20px 60px rgba(30,92,255,0.25));
+  }
+  .about-text p{color:var(--slate);margin-bottom:18px;font-size:16px;}
+  .about-text p:first-of-type{color:var(--navy);font-size:19px;font-family:'Oswald',sans-serif;text-transform:none;letter-spacing:0.01em;font-weight:500;line-height:1.4;}
+  .quote-line{
+    margin-top:36px;
+    padding-left:22px;
+    border-left:2px solid var(--blue);
+    color:var(--navy);
+    font-family:'Oswald',sans-serif;
+    text-transform:none;
+    font-size:16px;
+    font-weight:500;
+  }
 
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      transition: color 0.3s ease;
-    }
+  .cta-band{
+    background:linear-gradient(120deg,var(--navy) 0%, var(--navy-2) 60%, #163072 100%);
+    text-align:center;
+    color:var(--white);
+  }
+  .cta-band h2{font-size:clamp(28px,5vw,52px);margin-bottom:26px;}
+  .cta-band p{color:rgba(255,255,255,0.75);max-width:480px;margin:0 auto 40px;}
 
-    .nav-links a:hover {
-      color: var(--accent-white);
-    }
+  .kontakt{background:var(--ice);}
+  .kontakt-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+  }
+  .kontakt-info h3{color:var(--navy);font-size:16px;margin-bottom:8px;}
+  .kontakt-block{margin-bottom:34px;}
+  .kontakt-block .mono{color:var(--blue);font-size:13px;display:block;margin-bottom:8px;text-transform:uppercase;}
+  .kontakt-block a, .kontakt-block span{color:var(--slate);font-size:15px;}
+  .kontakt-block a:hover{color:var(--blue);}
 
-    .cta-btn {
-      background: var(--accent-white);
-      color: var(--bg-dark);
-      padding: 0.75rem 1.8rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+  form{display:flex;flex-direction:column;gap:18px;}
+  .field label{
+    display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate);margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:var(--white);
+    border:1px solid var(--line-light);
+    color:var(--navy);
+    padding:14px 16px;
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field textarea:focus{outline:none;border-color:var(--blue);}
+  .field textarea{resize:vertical;min-height:110px;}
+  form .btn-primary{border:none;cursor:pointer;margin-top:6px;align-self:flex-start;}
 
-    .cta-btn:hover {
-      background: #e2e2e2;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
-    }
+  footer{
+    padding:40px 0;
+    border-top:1px solid var(--line-light);
+    background:var(--white);
+  }
+  .foot-row{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-size:13px;color:var(--slate);
+  }
+  .foot-row a{color:var(--slate);}
+  .foot-row a:hover{color:var(--blue);}
 
-    /* HERO SECTION */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(10, 10, 12, 1) 70%);
-    }
-
-    .hero-badge {
-      border: 1px solid var(--border-subtle);
-      padding: 0.4rem 1.2rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.05;
-      max-width: 900px;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    /* PERFORMANCE METRICS GRID */
-    .features {
-      padding: 6rem 4rem;
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: 2.5rem;
-      border-radius: 16px;
-      transition: border-color 0.4s ease, transform 0.4s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-5px);
-    }
-
-    .card-num {
-      font-family: var(--font-heading);
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 300;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 3rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      .features { padding: 3rem 1.5rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
-  </style>
+  @media (max-width: 900px){
+    .pillars-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;gap:48px;}
+    .kontakt-grid{grid-template-columns:1fr;gap:56px;}
+    .hero-mark{opacity:0.35;width:80vw;max-width:80vw;right:-10%;}
+  }
+  @media (max-width: 720px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .nav-cta{display:none;}
+    .hero-stats{gap:32px;flex-wrap:wrap;}
+    section{padding:88px 0;}
+    .step{grid-template-columns:60px 1fr;gap:20px;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#" class="logo-container">
-      <div class="logo-mark">
-        <!-- Minimalist Stylized A/Arrow Logo SVG -->
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2L3 19h5l4-8 4 8h5L12 2zm0 6l2.5 5h-5L12 8z"/>
-        </svg>
-      </div>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="athletenwerk-logo.png" alt="Athletenwerk Logo">
       <span class="brand-name">ATHLETENWERK</span>
-    </a>
-    
-    <ul class="nav-links">
-      <li><a href="#about">Philosophie</a></li>
-      <li><a href="#services">System</a></li>
-      <li><a href="#results">Erfolge</a></li>
-    </ul>
-
-    <a href="#contact" class="cta-btn">Anfrage stellen</a>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-badge">High-Performance Coaching</div>
-    <h1>Maximum Potential.<br>Zero Compromise.</h1>
-    <p>Wissenschaftlich fundierte Leistungsoptimierung für Profi-Athleten und High-Performer.</p>
-    <a href="#contact" class="cta-btn" style="padding: 1rem 2.5rem;">Coaching Starten</a>
-  </section>
-
-  <!-- FEATURES / SYSTEM -->
-  <section class="features" id="services">
-    <div class="card">
-      <div class="card-num">// 01</div>
-      <h3>Biophysik Analyse</h3>
-      <p>Datengestützte Auswertung deiner Bewegungsabläufe, Kraftkurven und Regenerationsparameter.</p>
     </div>
-    
-    <div class="card">
-      <div class="card-num">// 02</div>
-      <h3>Spezifische Dynamik</h3>
-      <p>Maßgeschneiderte Periodisierung, exakt abgestimmt auf deine Wettkampf-Anforderungen.</p>
-    </div>
+    <nav class="links">
+      <a href="#saeulen">Prinzip</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#methode">Methode</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="nav-cta">Erstgespräch</a>
+    <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
 
-    <div class="card">
-      <div class="card-num">// 03</div>
-      <h3>Mental Excellence</h3>
-      <p>Fokus-Strategien und neuronales Training unter extremer Belastung.</p>
+<section class="hero">
+  <div class="hero-mark"><img src="athletenwerk-logo.png" alt=""></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="eyebrow mono">ATHLETENWERK · PERFORMANCE COACHING</span>
+      <h1>Bereit für die <span>nächste Stufe.</span></h1>
+      <p class="lead">Individuelles Athletiktraining und Leistungsdiagnostik für Sportler:innen und Ambitionierte, die an ihre Grenze wollen — und darüber hinaus.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+        <a href="#methode" class="btn-secondary">Unsere Methode</a>
+      </div>
     </div>
-  </section>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Jahre Trainererfahrung</div>
+      </div>
+      <div>
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Betreute Athlet:innen</div>
+      </div>
+      <div>
+        <div class="stat-num">1:1</div>
+        <div class="stat-label">Individuelle Betreuung</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 ATHLETENWERK. Alle Rechte vorbehalten.</p>
-    <p>athletenwerk.de</p>
-  </footer>
+<section class="pillars" id="saeulen">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Unser Prinzip</span>
+      <h2>Drei Säulen, ein Ziel</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="mono">01</span>
+        <h3>Mindset</h3>
+        <p>Mentale Stärke, Fokus und Disziplin sind das Fundament — vor jedem Satz, vor jedem Wettkampf.</p>
+      </div>
+      <div class="pillar">
+        <span class="mono">02</span>
+        <h3>Entwicklung</h3>
+        <p>Kontinuierlicher Fortschritt, klar gemessen und gezielt gesteuert — Woche für Woche.</p>
+      </div>
+      <div class="pillar">
+        <span class="mono">03</span>
+        <h3>Performance</h3>
+        <p>Die Umsetzung, die zählt: auf dem Feld, im Wettkampf, im Alltag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Leistungen</span>
+      <h2>Training, das messbar wirkt</h2>
+      <p>Jedes Programm entsteht aus Daten, Erfahrung und dem Ziel, das du wirklich erreichen willst.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">01</div>
+        <h3>Athletiktraining</h3>
+        <p>Individuelle Trainingspläne für Kraft, Schnelligkeit und Explosivität — abgestimmt auf deine Sportart und deinen Alltag.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">02</div>
+        <h3>Leistungsdiagnostik</h3>
+        <p>Regelmäßige Tests machen Fortschritt sichtbar und zeigen, wo dein nächstes Trainingsziel liegt.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">03</div>
+        <h3>Reha & Return-to-Sport</h3>
+        <p>Struktureller Wiedereinstieg nach Verletzungen — sicher aufgebaut, Schritt für Schritt begleitet.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">04</div>
+        <h3>Ernährungsberatung</h3>
+        <p>Praxisnahe Ernährungsstrategien, die zu deinem Trainingsplan und deinem Leben passen.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">05</div>
+        <h3>Teamtraining</h3>
+        <p>Athletiktraining für Mannschaften und Vereine — geplant, geleitet und ausgewertet aus einer Hand.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">06</div>
+        <h3>Online Coaching</h3>
+        <p>Trainingssteuerung und Feedback aus der Ferne — für alle, die ortsunabhängig trainieren.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="methode">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Methode</span>
+      <h2>Vier Phasen bis zur Bestform</h2>
+      <p>Jeder Athlet durchläuft denselben klaren Prozess — individuell befüllt, nie nach Schema F.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num mono">01</div>
+        <div>
+          <h3>Analyse</h3>
+          <p>Bewegungs- und Leistungsdiagnostik, Zielabgleich und Belastungshistorie bilden die Grundlage jedes Programms.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num mono">02</div>
+        <div>
+          <h3>Planung</h3>
+          <p>Ein periodisierter Trainingsplan, der Kraft, Schnelligkeit und Regeneration in ein realistisches Verhältnis bringt.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num mono">03</div>
+        <div>
+          <h3>Umsetzung</h3>
+          <p>Training unter Anleitung oder begleitet aus der Ferne — mit laufender Technikkontrolle und Anpassung.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num mono">04</div>
+        <div>
+          <h3>Fortschritt</h3>
+          <p>Regelmäßige Re-Tests machen Entwicklung sichtbar und bestimmen die nächste Trainingsphase.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="ueber">
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <img src="athletenwerk-logo.png" alt="Athletenwerk Logo">
+    </div>
+    <div class="about-text">
+      <p>Athletenwerk ist die Werkstatt für alle, die ihre Leistung ernst nehmen.</p>
+      <p>Wir kombinieren sportwissenschaftliche Diagnostik mit praxiserprobtem Athletiktraining. Kein Training von der Stange — jeder Plan entsteht aus deinen Testwerten, deiner Sportart und deinem Alltag.</p>
+      <p>Ob Wiedereinstieg nach Verletzung, Saisonvorbereitung oder der nächste Leistungssprung: Wir begleiten dich mit klarer Struktur und ehrlichem Feedback.</p>
+      <div class="quote-line">„Mindset. Entwicklung. Performance."</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Bereit für den nächsten Schritt?</h2>
+    <p>Im kostenlosen Erstgespräch klären wir deine Ziele und den passenden Einstieg ins Training.</p>
+    <a href="#kontakt" class="btn-primary">Jetzt Termin sichern</a>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt">
+  <div class="wrap kontakt-grid">
+    <div class="kontakt-info">
+      <div class="section-head" style="margin-bottom:40px;">
+        <span class="kicker">Kontakt</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Sprechen wir über dein Training</h2>
+      </div>
+      <div class="kontakt-block">
+        <span class="mono">Website</span>
+        <a href="https://athletenwerk-performance.de">athletenwerk-performance.de</a>
+      </div>
+      <div class="kontakt-block">
+        <span class="mono">E-Mail</span>
+        <a href="mailto:info@athletenwerk-performance.de">info@athletenwerk-performance.de</a>
+      </div>
+      <div class="kontakt-block">
+        <span class="mono">Standort</span>
+        <span>Training vor Ort & online</span>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Danke — wir melden uns!';">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Dein Name" required>
+      </div>
+      <div class="field">
+        <label for="email">E-Mail</label>
+        <input id="email" type="email" placeholder="deine@email.de" required>
+      </div>
+      <div class="field">
+        <label for="msg">Nachricht</label>
+        <textarea id="msg" placeholder="Erzähl uns von deinem Ziel …"></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Nachricht senden</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Athletenwerk. Alle Rechte vorbehalten.</span>
+    <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('nav.links');
+  toggle?.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += open ? '' : 'position:fixed;top:76px;left:0;right:0;background:#0A1B3D;flex-direction:column;padding:24px 32px;border-top:1px solid rgba(255,255,255,0.12);gap:20px;';
+  });
+</script>
 
 </body>
 </html>
