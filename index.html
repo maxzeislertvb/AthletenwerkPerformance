@@ -1,148 +1,550 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webseite mit Logo-Fokus</title>
-    <style>
-        /* Grundlegende Stile für die Webseite */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-            /* Hintergrundfarbe oder -bild, falls im letzten Code vorhanden */
-            background-color: #f4f4f4; /* Beispielhaft */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATHLETENWERK — High Performance Coaching</title>
+  
+  <!-- Typography: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        /* Container für den Hauptinhalt, damit er nicht hinter dem fixierten Logo verschwindet */
-        .content-container {
-            max-width: 1200px;
-            margin: 120px auto 20px; /* Oben Platz für das Logo lassen */
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+  <style>
+    /* ==========================================================================
+       1. RESET & CORE VARIABLE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* --- STILE FÜR DAS LOGO (NEU) --- */
-        .logo-branding-container {
-            position: fixed; /* Fixiert oben links */
-            top: 20px;
-            left: 20px;
-            z-index: 1000; /* Stellt sicher, dass es über allem anderen liegt */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9); /* Halbtransparenter weißer Hintergrund für gute Sichtbarkeit */
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Starker Schatten für Sichtbarkeit */
-            max-width: 250px; /* Begrenzt die Breite auf Desktops */
-        }
+    :root {
+      --bg-main: #0e1013;        /* Tiefes, edles Graphit-Schwarz */
+      --bg-surface: #16191e;     /* Subtiler Schiefer-Ton für Karten/Kästen */
+      --bg-surface-hover: #1e2229;
+      --border: #282c34;         /* Diskrete Rahmenlinie */
+      --text-white: #ffffff;     /* Pures Weiß für Überschriften */
+      --text-muted: #9ea4b0;     /* Gut lesbares Mattgrau für Fließtext */
+      --accent: #e2e8f0;         /* Helles Slate-Silber für Akzente */
+      --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
 
-        .logo-symbol {
-            width: 80px; /* Symbolgröße */
-            height: auto;
-            margin-bottom: 10px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .logo-text-branding {
-            font-size: 24px;
-            font-weight: bold;
-            color: #000; /* Schwarzer Text für starken Kontrast */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        /* -------------------------------- */
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-muted);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-        /* Hier folgen die ursprünglichen Stile Ihres letzten Codes */
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
+    /* ==========================================================================
+       2. TYPOGRAPHIE & LAYOUT HELPERS
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--text-white);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
-        header h1 {
-            margin: 0;
-            /* Eventuell den Header-Text verbergen oder anpassen, wenn das Logo prominent ist */
-        }
+    p {
+      margin-bottom: 1rem;
+    }
 
-        nav ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-        }
+    p:last-child {
+      margin-bottom: 0;
+    }
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-        /* Fügen Sie hier alle weiteren spezifischen Stile Ihres letzten Codes ein */
+    /* ==========================================================================
+       3. NAVIGATION (HEADER)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(14, 16, 19, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-    </style>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    /* Runder Kreis-Hintergrund für das Marken-Logo im Header */
+    .brand-logo-circle {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand-logo-circle svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .brand-name {
+      color: var(--text-white);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text-white);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--text-white);
+      color: var(--bg-main);
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 12rem 2rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logo-large {
+      width: 130px;
+      height: 130px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-logo-large svg {
+      width: 75px;
+      height: 75px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       5. SEKTIONEN & GRIDS
+       ========================================================================== */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* ==========================================================================
+       6. DIE 3 SÄULEN (CARDS)
+       ========================================================================== */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-surface-hover);
+      border-color: #3f4450;
+    }
+
+    .card-icon {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      background: var(--bg-main);
+      border: 1px solid var(--border);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       7. PROZESS / ABLAUF STEPS
+       ========================================================================== */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      background: var(--bg-surface);
+      padding: 1.75rem 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      background: var(--bg-main);
+      border: 1px solid var(--border);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       8. KONTAKT FORMULAR
+       ========================================================================== */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-white);
+    }
+
+    input, textarea, select {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--text-white);
+    }
+
+    /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       10. RESPONSIVE DESIGN (MOBILE)
+       ========================================================================== */
+    @media (max-width: 850px) {
+      header {
+        padding: 1rem 1.5rem;
+      }
+      
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 4rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- --- LOGO-BEREICH (NEU UND FIXIERT) --- -->
-    <div class="logo-branding-container">
-        <!-- SVG-Symbol (Das 'A' mit Pfeil und Welle) -->
-        <svg class="logo-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 32,80 L 58,15 L 68,23 L 45,80 Z" fill="#000"/>
-            <path d="M 46,38 L 73,80 L 59,80 L 46,55 Z" fill="#000"/>
-            <path d="M 28,68 C 40,50 62,68 76,55 C 64,68 42,54 28,68 Z" fill="#000"/>
+  <!-- NAVIGATION / HEADER -->
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-logo-circle">
+        <!-- Logo SVG Vektor -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 32,80 L 58,15 L 68,23 L 45,80 Z" fill="#0e1013"/>
+          <path d="M 46,38 L 73,80 L 59,80 L 46,55 Z" fill="#0e1013"/>
+          <path d="M 28,68 C 40,50 62,68 76,55 C 64,68 42,54 28,68 Z" fill="#0e1013"/>
         </svg>
-        <!-- Text-Branding -->
-        <p class="logo-text-branding">ATHLETENWERK</p>
-    </div>
-    <!-- --------------------------------------- -->
+      </div>
+      <span class="brand-name">ATHLETENWERK</span>
+    </a>
 
-    <!-- URSPrüngliche NavigATION aus Ihrem letzten Code -->
-    <header>
-        <h1>Willkommen bei Athletenwerk</h1>
-    </header>
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Über Uns</a></li>
-            <li><a href="#services">Dienstleistungen</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
+      <ul>
+        <li><a href="#saeulen">Die 3 Säulen</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#philosophie">Philosophie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
     </nav>
 
-    <!-- HAUPTINHALT aus Ihrem letzten Code, in einem neuen Container -->
-    <div class="content-container">
-        <section id="home">
-            <h2>Startseite</h2>
-            <p>Hier steht der Inhalt Ihrer Startseite, genau wie im letzten Code.</p>
-        </section>
-        
-        <section id="about">
-            <h2>Über Uns</h2>
-            <p>Hier steht die Beschreibung Ihrer Firma, genau wie im letzten Code.</p>
-        </section>
-        
-        <section id="services">
-            <h2>Unsere Dienstleistungen</h2>
-            <p>Hier werden Ihre Services aufgelistet, genau wie im letzten Code.</p>
-        </section>
-        
-        <section id="contact">
-            <h2>Kontakt</h2>
-            <p>Hier finden sich Kontaktinformationen, genau wie im letzten Code.</p>
-        </section>
+    <a href="#kontakt" class="btn">Erstgespräch</a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-logo-large">
+      <!-- Exaktes Logo SVG im Hauptbereich -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 32,80 L 58,15 L 68,23 L 45,80 Z" fill="#0e1013"/>
+        <path d="M 46,38 L 73,80 L 59,80 L 46,55 Z" fill="#0e1013"/>
+        <path d="M 28,68 C 40,50 62,68 76,55 C 64,68 42,54 28,68 Z" fill="#0e1013"/>
+      </svg>
     </div>
+    <span class="section-tag">High Performance Coaching</span>
+    <h1>Mindset. Entwicklung. Performance.</h1>
+    <p>Das fundamentale System für Athleten und Ambitionierte, die keine Kompromisse bei ihrer körperlichen und mentalen Leistungsfähigkeit eingehen.</p>
+    <a href="#kontakt" class="btn">Kostenfreies Erstgespräch vereinbaren</a>
+  </div>
+
+  <!-- DIE DREI SÄULEN SECTION -->
+  <section id="saeulen">
+    <span class="section-tag">Das Fundament</span>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Unsere drei Säulen des Erfolgs</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">01</div>
+        <h3>Mindset</h3>
+        <p>Die mentale Basis. Wir entwickeln eine eiserne Haltung, klare Klarheit in stressigen Situationen und das Bewusstsein, kontinuierlich über Grenzen hinauszutreten.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">02</div>
+        <h3>Entwicklung</h3>
+        <p>Der nachhaltige Prozess. Durch datengestütztes Training, gezielte Regeneration und stetige Analyse verbessern wir schrittweise deine Schwachstellen.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">03</div>
+        <h3>Performance</h3>
+        <p>Das Resultat auf dem Platz. Maximale Explosivität, Belastbarkeit und funktionale Kraft genau dann, wenn es darauf ankommt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF SECTION -->
+  <section id="ablauf">
+    <span class="section-tag">Der Weg</span>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Der strukturierte Prozess</h2>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Standortbestimmung</h3>
+          <p>Analyse deines Ist-Zustands in den Bereichen Mindset, körperliche Leistungsfähigkeit und Zielsetzung.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Systemische Planung</h3>
+          <p>Erstellung deines maßgeschneiderten Entwicklungsplans – abgestimmt auf deinen Alltag und deine Wettkampfziele.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Maximale Umsetzung</h3>
+          <p>Laufendes Coaching, regelmäßige Check-ins und stetige Feinanpassung für messbare Performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHIE SECTION -->
+  <section id="philosophie">
+    <div class="grid-2" style="align-items: center;">
+      <div>
+        <span class="section-tag">Über Athletenwerk</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Klarheit statt Überforderung</h2>
+        <p style="margin-bottom: 1rem;">Athletenwerk steht für ehrliches, professionelles Coaching. Wir verzichten auf leere Versprechungen und konzentrieren uns auf das, was nachweislich funktioniert.</p>
+        <p>Mit der richtigen Einstellung (Mindset) und zielgerichteter Arbeit (Entwicklung) erreichen wir dein maximales Potenzial (Performance).</p>
+      </div>
+      <div class="card" style="background: var(--bg-main);">
+        <h3 style="margin-bottom: 1rem;">Warum Athletenwerk?</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
+          <li>✓ Strukturierte 3-Säulen-Methodik</li>
+          <li>✓ Individuelle 1-zu-1 Betreuung</li>
+          <li>✓ Kein Hype – nur Resultate</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT SECTION -->
+  <section id="kontakt">
+    <div class="grid-2">
+      <div>
+        <span class="section-tag">Unverbindlich</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Bereit für den nächsten Schritt?</h2>
+        <p>Sende uns eine Anfrage. Wir melden uns innerhalb von 24 Stunden für ein persönliches Erstgespräch.</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Dein Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" placeholder="deine@email.de" required>
+        </div>
+        <div class="form-group">
+          <label for="fokus">Dein Hauptfokus</label>
+          <select id="fokus" required>
+            <option value="" disabled selected>Bitte auswählen...</option>
+            <option value="mindset">Mindset & Mentale Stärke</option>
+            <option value="entwicklung">Körperliche Entwicklung & Reha</option>
+            <option value="performance">Wettkampf-Performance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht (optional)</label>
+          <textarea id="message" rows="3" placeholder="Wie können wir dir helfen?"></textarea>
+        </div>
+        <button type="submit" class="btn" style="border: none; cursor: pointer; text-align: center;">Anfrage absenden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>&copy; 2026 ATHLETENWERK. Alle Rechte vorbehalten.</div>
+    <div>athletenwerk-performance.de</div>
+  </footer>
 
 </body>
 </html>
