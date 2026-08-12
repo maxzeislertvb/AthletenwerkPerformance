@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATHLETENWERK — Athletic Performance Coaching</title>
+  <title>ATHLETENWERK — Mindset. Entwicklung. Performance.</title>
   
-  <!-- Typography: Inter (Minimalistisch, Perfekt Lesbar) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* FARBWELT & CORE STYLES */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -19,12 +17,12 @@
     }
 
     :root {
-      --bg-main: #0e1013;        /* Tiefes Graphit-Schwarz */
-      --bg-surface: #16191e;     /* Subtiler Schiefer-Ton */
-      --border: #282c34;         /* Diskrete Rahmenlinie */
-      --text-white: #ffffff;     /* Pures Weiß für Headlines */
-      --text-muted: #9ea4b0;     /* Gut lesbares Mattgrau für Text */
-      --accent: #e2e8f0;         /* Helles Slate-Silber für Akzente */
+      --bg-main: #0e1013;
+      --bg-surface: #16191e;
+      --border: #282c34;
+      --text-white: #ffffff;
+      --text-muted: #9ea4b0;
+      --accent: #e2e8f0;
       --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
@@ -40,7 +38,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* TYPOGRAPHIE */
     h1, h2, h3 {
       color: var(--text-white);
       font-weight: 700;
@@ -79,11 +76,11 @@
       text-decoration: none;
     }
 
-    /* Dein ausgewähltes Pfeil-A Logo */
+    /* Präziser Nachbau deines runden Marken-Logos */
     .brand-logo-circle {
-      width: 40px;
-      height: 40px;
-      background: var(--text-white);
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -92,15 +89,15 @@
     }
 
     .brand-logo-circle svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--bg-main);
+      width: 26px;
+      height: 26px;
+      fill: #0e1013;
     }
 
     .brand-name {
       color: var(--text-white);
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-weight: 800;
+      font-size: 1.15rem;
       letter-spacing: 0.08em;
     }
 
@@ -141,15 +138,37 @@
 
     /* HERO SECTION */
     .hero {
-      padding: 11rem 3rem 6rem;
+      padding: 12rem 3rem 6rem;
       max-width: 1100px;
       margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logo-large {
+      width: 110px;
+      height: 110px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-logo-large svg {
+      width: 65px;
+      height: 65px;
+      fill: #0e1013;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero p {
@@ -167,36 +186,53 @@
       border-top: 1px solid var(--border);
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    /* CARDS & KÄSTEN */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    /* DIE DREI SÄULEN (CARDS) */
     .card {
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .card-icon {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      background: var(--bg-main);
+      border: 1px solid var(--border);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
     }
 
     .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
     }
 
     .card p {
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    /* PROZESS LISTE */
+    /* PROZESS / ABLAUF */
     .step-list {
       display: flex;
       flex-direction: column;
@@ -228,7 +264,7 @@
       flex-shrink: 0;
     }
 
-    /* KONTAKT FORMULAR */
+    /* FORMULAR */
     form {
       display: flex;
       flex-direction: column;
@@ -274,26 +310,28 @@
       font-size: 0.85rem;
     }
 
-    /* RESPONSIVE DESIGN */
+    /* RESPONSIVE */
     @media (max-width: 850px) {
       header { padding: 1rem 1.5rem; }
       nav { display: none; }
       .hero { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 1.5rem; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER NAVIGATION -->
+  <!-- NAVIGATION -->
   <header>
     <a href="#" class="brand">
       <div class="brand-logo-circle">
-        <!-- SVG Nachbildung deines Logos -->
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2L3 20h4.5l2.5-6h2l2.5 6H21L12 2zm0 5.5l1.8 4.5h-3.6L12 7.5z"/>
+        <!-- Logo SVG aus der Vorlage -->
+        <svg viewBox="0 0 100 100">
+          <path d="M 32,80 L 58,15 L 68,23 L 45,80 Z" />
+          <path d="M 46,38 L 73,80 L 59,80 L 46,55 Z" />
+          <path d="M 28,68 C 40,50 62,68 76,55 C 64,68 42,54 28,68 Z" />
         </svg>
       </div>
       <span class="brand-name">ATHLETENWERK</span>
@@ -301,9 +339,9 @@
 
     <nav>
       <ul>
-        <li><a href="#angebot">Angebot</a></li>
+        <li><a href="#saeulen">Die 3 Säulen</a></li>
         <li><a href="#ablauf">Ablauf</a></li>
-        <li><a href="#ueber-mich">Über mich</a></li>
+        <li><a href="#philosophie">Philosophie</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
@@ -313,29 +351,39 @@
 
   <!-- HERO SECTION -->
   <div class="hero">
-    <span class="section-tag">Athletic Performance Coaching</span>
-    <h1>Professionelles Training für messbare Resultate.</h1>
-    <p>Keine Standardpläne, kein Schnickschnack. Individuelle Trainingssteuerung und Leistungsoptimierung für Athleten und Ambitionierte.</p>
+    <div class="hero-logo-large">
+      <svg viewBox="0 0 100 100">
+        <path d="M 32,80 L 58,15 L 68,23 L 45,80 Z" />
+        <path d="M 46,38 L 73,80 L 59,80 L 46,55 Z" />
+        <path d="M 28,68 C 40,50 62,68 76,55 C 64,68 42,54 28,68 Z" />
+      </svg>
+    </div>
+    <span class="section-tag">High Performance Coaching</span>
+    <h1>Mindset. Entwicklung. Performance.</h1>
+    <p>Das fundamentale System für Athleten und Ambitionierte, die keine Kompromisse bei ihrer körperlichen und mentalen Leistungsfähigkeit eingehen.</p>
     <a href="#kontakt" class="btn">Kostenfreies Erstgespräch vereinbaren</a>
   </div>
 
-  <!-- ANGEBOT / LEISTUNGEN -->
-  <section id="angebot">
-    <span class="section-tag">Schwerpunkte</span>
-    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Klar strukturierte Betreuung</h2>
+  <!-- DIE DREI SÄULEN -->
+  <section id="saeulen">
+    <span class="section-tag">Das Fundament</span>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Unsere drei Säulen des Erfolgs</h2>
 
     <div class="grid-3">
       <div class="card">
-        <h3>Leistungsdiagnostik</h3>
-        <p>Analyse von Bewegungsmustern, Kraftwerten und Schwachstellen als Fundament für deinen Trainingsplan.</p>
+        <div class="card-icon">01</div>
+        <h3>Mindset</h3>
+        <p>Die mentale Basis. Wir entwickeln eine eiserne Haltung, klare Klarheit in stressigen Situationen und das Bewusstsein, kontinuierlich über Grenzen hinauszutreten.</p>
       </div>
       <div class="card">
-        <h3>Individueller Trainingsplan</h3>
-        <p>100% maßgeschneiderte Periodisierung, exakt angepasst an deinen Alltag, dein Niveau und deine Ziele.</p>
+        <div class="card-icon">02</div>
+        <h3>Entwicklung</h3>
+        <p>Der nachhaltige Prozess. Durch datengestütztes Training, gezielte Regeneration und stetige Analyse verbessern wir schrittweise deine Schwachstellen.</p>
       </div>
       <div class="card">
-        <h3>Direct Support</h3>
-        <p>Regelmäßige Check-ins, Feedback zu deiner Übungsausführung und Anpassung des Plans bei Bedarf.</p>
+        <div class="card-icon">03</div>
+        <h3>Performance</h3>
+        <p>Das Resultat auf dem Platz. Maximale Explosivität, Belastbarkeit und funktionale Kraft genau dann, wenn es darauf ankommt.</p>
       </div>
     </div>
   </section>
@@ -343,48 +391,48 @@
   <!-- ABLAUF -->
   <section id="ablauf">
     <span class="section-tag">Der Weg</span>
-    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">In 3 Schritten zum Ziel</h2>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Der strukturierte Prozess</h2>
 
     <div class="step-list">
       <div class="step-item">
         <div class="step-number">1</div>
         <div>
-          <h3 style="margin-bottom: 0.3rem;">Erstgespräch</h3>
-          <p>Wir klären deine aktuellen Herausforderungen, deine Ziele und prüfen, ob die Chemie stimmt.</p>
+          <h3 style="margin-bottom: 0.3rem;">Standortbestimmung</h3>
+          <p>Analyse deines Ist-Zustands in den Bereichen Mindset, körperliche Leistungsfähigkeit und Zielsetzung.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-number">2</div>
         <div>
-          <h3 style="margin-bottom: 0.3rem;">Analyse & Planerstellung</h3>
-          <p>Du erhältst dein individuelles System inkl. Übungsauswahl, Satz- und Wiederholungszahlen.</p>
+          <h3 style="margin-bottom: 0.3rem;">Systemische Planung</h3>
+          <p>Erstellung deines maßgeschneiderten Entwicklungsplans – abgestimmt auf deinen Alltag und deine Wettkampfziele.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-number">3</div>
         <div>
-          <h3 style="margin-bottom: 0.3rem;">Umsetzung & Betreuung</h3>
-          <p>Wir arbeiten kontinuierlich an deinem Fortschritt und passen Stellschrauben laufend an.</p>
+          <h3 style="margin-bottom: 0.3rem;">Maximale Umsetzung</h3>
+          <p>Laufendes Coaching, regelmäßige Check-ins und stetige Feinanpassung für messbare Performance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ÜBER MICH -->
-  <section id="ueber-mich">
+  <!-- PHILOSOPHIE -->
+  <section id="philosophie">
     <div class="grid-2" style="align-items: center;">
       <div>
-        <span class="section-tag">Philosophie</span>
-        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Ehrliches Handwerk statt Abkürzungen</h2>
-        <p style="margin-bottom: 1rem;">Beim Athletenwerk geht es um nachhaltige Leistungssport-Prinzipien, angewandt auf deine persönlichen Ziele.</p>
-        <p>Egal ob Schmerzfreiheit, maximale Explosivität oder gezielter Kraftaufbau – entscheidend sind Konsistenz, saubere Technik und eine durchdachte Struktur.</p>
+        <span class="section-tag">Über Athletenwerk</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Klarheit statt Überforderung</h2>
+        <p style="margin-bottom: 1rem;">Athletenwerk steht für ehrliches, professionelles Coaching. Wir verzichten auf leere Versprechungen und konzentrieren uns auf das, was nachweislich funktioniert.</p>
+        <p>Mit der richtigen Einstellung (Mindset) und zielgerichteter Arbeit (Entwicklung) erreichen wir dein maximales Potenzial (Performance).</p>
       </div>
       <div class="card" style="background: var(--bg-main);">
         <h3 style="margin-bottom: 1rem;">Warum Athletenwerk?</h3>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
-          <li>✓ Evidenzbasierte Trainingsmethodik</li>
-          <li>✓ Klarer Fokus auf saubere Ausführung</li>
-          <li>✓ Kein Verkaufs-Gimmick, nur Ergebnisse</li>
+          <li>✓ Strukturierte 3-Säulen-Methodik</li>
+          <li>✓ Individuelle 1-zu-1 Betreuung</li>
+          <li>✓ Kein Hype – nur Resultate</li>
         </ul>
       </div>
     </div>
@@ -395,8 +443,8 @@
     <div class="grid-2">
       <div>
         <span class="section-tag">Unverbindlich</span>
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Jetzt Erstgespräch anfragen</h2>
-        <p>Schreib mir eine kurze Nachricht. Ich melde mich innerhalb von 24 Stunden persönlich bei dir.</p>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Bereit für den nächsten Schritt?</h2>
+        <p>Sende uns eine Anfrage. Wir melden uns innerhalb von 24 Stunden für ein persönliches Erstgespräch.</p>
       </div>
 
       <form>
@@ -409,17 +457,17 @@
           <input type="email" id="email" placeholder="deine@email.de" required>
         </div>
         <div class="form-group">
-          <label for="goal">Dein Ziel</label>
-          <select id="goal" required>
+          <label for="fokus">Dein Hauptfokus</label>
+          <select id="fokus" required>
             <option value="" disabled selected>Bitte auswählen...</option>
-            <option value="kraft">Kraft- & Muskelaufbau</option>
-            <option value="performance">Sportliche Performance / Athletik</option>
-            <option value="reha">Schmerzfreiheit & Reha</option>
+            <option value="mindset">Mindset & Mentale Stärke</option>
+            <option value="entwicklung">Körperliche Entwicklung & Reha</option>
+            <option value="performance">Wettkampf-Performance</option>
           </select>
         </div>
         <div class="form-group">
           <label for="message">Nachricht (optional)</label>
-          <textarea id="message" rows="3" placeholder="Wie kann ich dir helfen?"></textarea>
+          <textarea id="message" rows="3" placeholder="Wie können wir dir helfen?"></textarea>
         </div>
         <button type="submit" class="btn" style="border: none; cursor: pointer; text-align: center;">Anfrage absenden</button>
       </form>
