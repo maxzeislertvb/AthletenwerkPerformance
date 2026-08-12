@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATHLETENWERK — High-Performance Athletic Engineering</title>
+  <title>ATHLETENWERK — Athletic Performance Coaching</title>
   
-  <!-- Premium Fonts: Syne & Plus Jakarta Sans -->
+  <!-- Typography: Inter (Minimalistisch, Perfekt Lesbar) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* DESIGN SYSTEM & CORE VARIABLES */
+    /* FARBWELT & CORE STYLES */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -19,19 +19,13 @@
     }
 
     :root {
-      --bg-dark: #090a0c;
-      --bg-surface: #111317;
-      --bg-card: #17191e;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.18);
-      
-      --accent-titanium: #c5a059;
-      --accent-titanium-hover: #d4af37;
-      --text-main: #f5f5f7;
-      --text-muted: #8a8d93;
-      
-      --font-head: 'Syne', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --bg-main: #0e1013;        /* Tiefes Graphit-Schwarz */
+      --bg-surface: #16191e;     /* Subtiler Schiefer-Ton */
+      --border: #282c34;         /* Diskrete Rahmenlinie */
+      --text-white: #ffffff;     /* Pures Weiß für Headlines */
+      --text-muted: #9ea4b0;     /* Gut lesbares Mattgrau für Text */
+      --accent: #e2e8f0;         /* Helles Slate-Silber für Akzente */
+      --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     html {
@@ -39,44 +33,28 @@
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-muted);
+      font-family: var(--font-family);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ARCHITECTURAL GRID OVERLAY */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100px 100px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* TYPOGRAPHY UTILITIES */
-    h1, h2, h3, .head-font {
-      font-family: var(--font-head);
-      text-transform: uppercase;
+    /* TYPOGRAPHIE */
+    h1, h2, h3 {
+      color: var(--text-white);
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .section-label {
-      font-family: var(--font-head);
+    .section-tag {
       font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      color: var(--accent-titanium);
+      font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: inline-block;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
     }
 
     /* NAVIGATION */
@@ -88,320 +66,234 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 4rem;
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(9, 10, 12, 0.85);
-      backdrop-filter: blur(16px);
+      padding: 1.25rem 3rem;
+      background: rgba(14, 16, 19, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       text-decoration: none;
-      color: var(--text-main);
     }
 
-    .logo-badge {
-      width: 38px;
-      height: 38px;
-      background: var(--text-main);
+    /* Dein ausgewähltes Pfeil-A Logo */
+    .brand-logo-circle {
+      width: 40px;
+      height: 40px;
+      background: var(--text-white);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
 
-    .brand:hover .logo-badge {
-      transform: scale(1.05);
-    }
-
-    .logo-badge svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--bg-dark);
+    .brand-logo-circle svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--bg-main);
     }
 
     .brand-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
     }
 
     nav ul {
       display: flex;
-      gap: 3rem;
+      gap: 2.5rem;
       list-style: none;
     }
 
     nav a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: color 0.3s ease;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: var(--text-main);
+      color: var(--text-white);
     }
 
-    .nav-btn {
-      border: 1px solid var(--accent-titanium);
-      color: var(--accent-titanium);
-      padding: 0.6rem 1.4rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-size: 0.8rem;
+    .btn {
+      display: inline-block;
+      background: var(--text-white);
+      color: var(--bg-main);
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: all 0.3s ease;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .nav-btn:hover {
-      background: var(--accent-titanium);
-      color: var(--bg-dark);
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
     }
 
     /* HERO SECTION */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 4rem 6rem;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 11rem 3rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 7.5vw, 6.5rem);
-      line-height: 1.02;
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    /* MAIN CONTENT LAYOUT */
+    section {
+      padding: 5rem 3rem;
       max-width: 1100px;
-      margin-bottom: 2rem;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
     }
 
-    .hero h1 span {
-      color: var(--accent-titanium);
-    }
-
-    .hero-grid {
+    .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: flex-end;
-      margin-top: 2rem;
+      gap: 3rem;
     }
 
-    .hero-p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      font-weight: 300;
-      max-width: 520px;
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: flex-end;
-    }
-
-    .btn-primary {
-      background: var(--text-main);
-      color: var(--bg-dark);
-      padding: 1.1rem 2.5rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-titanium);
-      color: var(--bg-dark);
-      box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
-    }
-
-    /* SECTIONS LAYOUT */
-    section {
-      padding: 8rem 4rem;
-      border-bottom: 1px solid var(--border-subtle);
-      position: relative;
-    }
-
-    .section-head {
-      max-width: 700px;
-      margin-bottom: 5rem;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      line-height: 1.1;
-    }
-
-    /* CARDS & GRIDS */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
+    /* CARDS & KÄSTEN */
     .card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 3rem 2.5rem;
-      border-radius: 12px;
-      transition: all 0.4s ease;
-    }
-
-    .card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-4px);
-      background: var(--bg-card);
-    }
-
-    .card-num {
-      font-family: var(--font-head);
-      font-size: 0.85rem;
-      color: var(--accent-titanium);
-      margin-bottom: 2rem;
-      display: block;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
     }
 
     .card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
     }
 
     .card p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      font-weight: 300;
+      font-size: 0.95rem;
     }
 
-    /* COMPARISON TABLE (High-End Look) */
-    .comparison-container {
+    /* PROZESS LISTE */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      overflow: hidden;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
-    .comp-row {
-      display: grid;
-      grid-template-columns: 2fr 1.5fr 1.5fr;
-      padding: 1.8rem 2.5rem;
-      border-bottom: 1px solid var(--border-subtle);
+    .step-number {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      background: var(--bg-main);
+      border: 1px solid var(--border);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .comp-row:last-child {
-      border-bottom: none;
-    }
-
-    .comp-head {
-      background: var(--bg-card);
-      font-family: var(--font-head);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .comp-highlight {
-      color: var(--accent-titanium);
-      font-weight: 600;
-    }
-
-    /* CONTACT FORM */
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 6rem;
-    }
-
+    /* KONTAKT FORMULAR */
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
+      gap: 1.25rem;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.4rem;
     }
 
     .form-group label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-white);
     }
 
     input, textarea, select {
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 1.1rem 1.5rem;
-      border-radius: 8px;
-      color: var(--text-main);
-      font-family: var(--font-body);
-      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.3s ease;
     }
 
     input:focus, textarea:focus, select:focus {
-      border-color: var(--accent-titanium);
+      border-color: var(--text-white);
     }
 
     /* FOOTER */
     footer {
-      padding: 4rem;
+      border-top: 1px solid var(--border);
+      padding: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--border-subtle);
-      color: var(--text-muted);
       font-size: 0.85rem;
     }
 
-    /* MOBILE OPTIMIZATION */
-    @media (max-width: 960px) {
-      header { padding: 1.2rem 1.5rem; }
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 850px) {
+      header { padding: 1rem 1.5rem; }
       nav { display: none; }
-      section { padding: 5rem 1.5rem; }
       .hero { padding: 8rem 1.5rem 4rem; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .cta-group { justify-content: flex-start; }
-      .grid-3, .grid-2, .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
-      .comp-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .comp-row div:last-child { display: none; }
-      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      section { padding: 4rem 1.5rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- HEADER NAVIGATION -->
   <header>
     <a href="#" class="brand">
-      <div class="logo-badge">
+      <div class="brand-logo-circle">
+        <!-- SVG Nachbildung deines Logos -->
         <svg viewBox="0 0 24 24">
-          <path d="M12 2L4 20h4.5l2.5-6h2l2.5 6H20L12 2zm0 5.5l1.8 4.5h-3.6L12 7.5z"/>
+          <path d="M12 2L3 20h4.5l2.5-6h2l2.5 6H21L12 2zm0 5.5l1.8 4.5h-3.6L12 7.5z"/>
         </svg>
       </div>
       <span class="brand-name">ATHLETENWERK</span>
@@ -409,174 +301,134 @@
 
     <nav>
       <ul>
-        <li><a href="#philosophie">Philosophie</a></li>
-        <li><a href="#system">Das System</a></li>
-        <li><a href="#zielgruppen">Für Wen</a></li>
-        <li><a href="#vergleich">Vergleich</a></li>
+        <li><a href="#angebot">Angebot</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#ueber-mich">Über mich</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
 
-    <a href="#kontakt" class="nav-btn">Erstgespräch</a>
+    <a href="#kontakt" class="btn">Erstgespräch</a>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
-    <span class="section-label">// Athletic Engineering</span>
-    <h1>Messbare Leistung.<br><span>Keine Ausreden.</span></h1>
-    
-    <div class="hero-grid">
-      <p class="hero-p">
-        Athletenwerk entwickelt individualisierte Hochleistungssysteme für Profi-Athleten und Ambitionierte, die keine Zeit für Halbwissen haben.
-      </p>
-      <div class="cta-group">
-        <a href="#kontakt" class="btn-primary">Analyse Buchen</a>
-      </div>
-    </div>
-  </section>
+  <div class="hero">
+    <span class="section-tag">Athletic Performance Coaching</span>
+    <h1>Professionelles Training für messbare Resultate.</h1>
+    <p>Keine Standardpläne, kein Schnickschnack. Individuelle Trainingssteuerung und Leistungsoptimierung für Athleten und Ambitionierte.</p>
+    <a href="#kontakt" class="btn">Kostenfreies Erstgespräch vereinbaren</a>
+  </div>
 
-  <!-- PHILOSOPHIE -->
-  <section id="philosophie">
-    <div class="section-head">
-      <span class="section-label">01 / Die Philosophie</span>
-      <h2>Handwerk trifft auf Biomechanik.</h2>
-    </div>
+  <!-- ANGEBOT / LEISTUNGEN -->
+  <section id="angebot">
+    <span class="section-tag">Schwerpunkte</span>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">Klar strukturierte Betreuung</h2>
 
     <div class="grid-3">
       <div class="card">
-        <span class="card-num">01.1</span>
-        <h3>Wissenschaft statt Mythen</h3>
-        <p>Jede Übung, jede Pause und jede Ernährungsanpassung basiert auf objektiven Daten und biomechanischen Grundgesetzen.</p>
+        <h3>Leistungsdiagnostik</h3>
+        <p>Analyse von Bewegungsmustern, Kraftwerten und Schwachstellen als Fundament für deinen Trainingsplan.</p>
       </div>
       <div class="card">
-        <span class="card-num">01.2</span>
-        <h3>Systemische Belastung</h3>
-        <p>Wir betrachten das Nervensystem, Muskelstrukturen und hormonelle Parameter als eine funktionale Einheit.</p>
+        <h3>Individueller Trainingsplan</h3>
+        <p>100% maßgeschneiderte Periodisierung, exakt angepasst an deinen Alltag, dein Niveau und deine Ziele.</p>
       </div>
       <div class="card">
-        <span class="card-num">01.3</span>
-        <h3>Langfristige Dominanz</h3>
-        <p>Kurzfristiger Muskelkater ist wertlos. Unser Ziel ist nachhaltige Schmerzfreiheit und maximale Explosivkraft.</p>
+        <h3>Direct Support</h3>
+        <p>Regelmäßige Check-ins, Feedback zu deiner Übungsausführung und Anpassung des Plans bei Bedarf.</p>
       </div>
     </div>
   </section>
 
-  <!-- DAS SYSTEM -->
-  <section id="system">
-    <div class="section-head">
-      <span class="section-label">02 / Das Betreuungssystem</span>
-      <h2>Der 3-Phasen-Prozess.</h2>
-    </div>
+  <!-- ABLAUF -->
+  <section id="ablauf">
+    <span class="section-tag">Der Weg</span>
+    <h2 style="font-size: 2rem; margin-bottom: 2.5rem;">In 3 Schritten zum Ziel</h2>
 
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-num">PHASE A</span>
-        <h3>Status Quo Diagnostik</h3>
-        <p>Tiefgreifende Bewegungsanalyse, Laktatschwellenbestimmung und Erfassung muskulärer Dysbalancen.</p>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Erstgespräch</h3>
+          <p>Wir klären deine aktuellen Herausforderungen, deine Ziele und prüfen, ob die Chemie stimmt.</p>
+        </div>
       </div>
-      <div class="card">
-        <span class="card-num">PHASE B</span>
-        <h3>Precision Coaching</h3>
-        <p>Wöchentlich angepasste Trainings- und Regenerationsprotokolle mit direkter Video-Formkontrolle.</p>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Analyse & Planerstellung</h3>
+          <p>Du erhältst dein individuelles System inkl. Übungsauswahl, Satz- und Wiederholungszahlen.</p>
+        </div>
       </div>
-      <div class="card">
-        <span class="card-num">PHASE C</span>
-        <h3>Peak Performance</h3>
-        <p>Gezielte Tapering-Phasen für Wettkämpfe und kontinuierliche Performancesteigerung.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZIELGRUPPEN -->
-  <section id="zielgruppen">
-    <div class="section-head">
-      <span class="section-label">03 / Zielgruppen</span>
-      <h2>Maßgeschneidert für Spitzenleister.</h2>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <span class="card-num">TYP I</span>
-        <h3>Wettkampf-Athleten</h3>
-        <p>Spieler und Einzelsportler, die ihre Schnelligkeit, Agilität und Belastbarkeit im Wettkampf auf das nächste Level heben müssen.</p>
-      </div>
-      <div class="card">
-        <span class="card-num">TYP II</span>
-        <h3>High-Performing Executives</h3>
-        <p>Unternehmer und Führungskräfte mit wenig Zeit, die maximale körperliche Leistungsfähigkeit und mentale Klarheit verlangen.</p>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div>
+          <h3 style="margin-bottom: 0.3rem;">Umsetzung & Betreuung</h3>
+          <p>Wir arbeiten kontinuierlich an deinem Fortschritt und passen Stellschrauben laufend an.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- VERGLEICHSTABELLE -->
-  <section id="vergleich">
-    <div class="section-head">
-      <span class="section-label">04 / Der Unterschied</span>
-      <h2>Warum Athletenwerk anders ist.</h2>
-    </div>
-
-    <div class="comparison-container">
-      <div class="comp-row comp-head">
-        <div>Kriterium</div>
-        <div class="comp-highlight">ATHLETENWERK</div>
-        <div>Standard Studio / Coach</div>
+  <!-- ÜBER MICH -->
+  <section id="ueber-mich">
+    <div class="grid-2" style="align-items: center;">
+      <div>
+        <span class="section-tag">Philosophie</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Ehrliches Handwerk statt Abkürzungen</h2>
+        <p style="margin-bottom: 1rem;">Beim Athletenwerk geht es um nachhaltige Leistungssport-Prinzipien, angewandt auf deine persönlichen Ziele.</p>
+        <p>Egal ob Schmerzfreiheit, maximale Explosivität oder gezielter Kraftaufbau – entscheidend sind Konsistenz, saubere Technik und eine durchdachte Struktur.</p>
       </div>
-      <div class="comp-row">
-        <div>Planung</div>
-        <div class="comp-highlight">Datengestützt & Individuell</div>
-        <div>Standard-Schablonen</div>
-      </div>
-      <div class="comp-row">
-        <div>Analyse</div>
-        <div class="comp-highlight">Biomechanik & Regeneration</div>
-        <div>Bauchgefühl</div>
-      </div>
-      <div class="comp-row">
-        <div>Erreichbarkeit</div>
-        <div class="comp-highlight">Direct-Line 1-zu-1 Support</div>
-        <div>Nur während der Stunden</div>
+      <div class="card" style="background: var(--bg-main);">
+        <h3 style="margin-bottom: 1rem;">Warum Athletenwerk?</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
+          <li>✓ Evidenzbasierte Trainingsmethodik</li>
+          <li>✓ Klarer Fokus auf saubere Ausführung</li>
+          <li>✓ Kein Verkaufs-Gimmick, nur Ergebnisse</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
   <section id="kontakt">
-    <div class="contact-wrapper">
+    <div class="grid-2">
       <div>
-        <span class="section-label">05 / Erstgespräch</span>
-        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Bereit für Veränderung?</h2>
-        <p style="color: var(--text-muted); font-weight: 300;">Trage deine Daten ein. Wir analysieren deine Ausgangslage und melden uns innerhalb von 24 Stunden für ein persönliches Strategiegespräch.</p>
+        <span class="section-tag">Unverbindlich</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Jetzt Erstgespräch anfragen</h2>
+        <p>Schreib mir eine kurze Nachricht. Ich melde mich innerhalb von 24 Stunden persönlich bei dir.</p>
       </div>
 
       <form>
         <div class="form-group">
-          <label>Vollständiger Name</label>
-          <input type="text" placeholder="z. B. Max Mustermann" required>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Dein Name" required>
         </div>
         <div class="form-group">
-          <label>E-Mail-Adresse</label>
-          <input type="email" placeholder="max@beispiel.de" required>
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" placeholder="deine@email.de" required>
         </div>
         <div class="form-group">
-          <label>Hauptziel / Zielsetzung</label>
-          <select required>
-            <option value="" disabled selected>Bitte wählen...</option>
-            <option value="performance">Wettkampf-Performance</option>
+          <label for="goal">Dein Ziel</label>
+          <select id="goal" required>
+            <option value="" disabled selected>Bitte auswählen...</option>
+            <option value="kraft">Kraft- & Muskelaufbau</option>
+            <option value="performance">Sportliche Performance / Athletik</option>
             <option value="reha">Schmerzfreiheit & Reha</option>
-            <option value="executive">Executive Fitness</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Deine Nachricht</label>
-          <textarea rows="4" placeholder="Kurze Beschreibung deiner aktuellen Lage..."></textarea>
+          <label for="message">Nachricht (optional)</label>
+          <textarea id="message" rows="3" placeholder="Wie kann ich dir helfen?"></textarea>
         </div>
-        <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Anfrage Absenden</button>
+        <button type="submit" class="btn" style="border: none; cursor: pointer; text-align: center;">Anfrage absenden</button>
       </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div>&copy; 2026 ATHLETENWERK. All Rights Reserved.</div>
+    <div>&copy; 2026 ATHLETENWERK. Alle Rechte vorbehalten.</div>
     <div>athletenwerk-performance.de</div>
   </footer>
 
